@@ -85,6 +85,6 @@
     <plugin name="cordova-plugin-email" spec="1.2.7" />
     <plugin name="cordova-plugin-network-information" spec="2.0.1" />
     <allow-navigation href="http://192.168.254.42:8100" sessionid="d69f8816" />
-    <engine name="android" spec="7.1.4" />
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
+    <engine name="android" spec="7.1.4" />
 </widget>

@@ -38,8 +38,6 @@ export class ViewRequestDetPage {
     var cur_year = new Date().getFullYear();
     this.current_date = cur_year + '-' + cur_month + '-' + cur_day;
     this.getAllKeys();
-
-    console.log(this.selectedReqToView);
   }
 
   ionViewDidLoad() {
