@@ -6,7 +6,7 @@ import { AngularFireDatabase } from 'angularfire2/database'
 import { Camera, CameraOptions } from "@ionic-native/camera"
 import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
-import { ParseError } from '@angular/compiler';
+
 
 @IonicPage()
 @Component({

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { FormdetailsPage } from '../formdetails/formdetails';
 import { AlertController } from 'ionic-angular';
+import * as firebase from 'firebase';
 /**
  * Generated class for the PendingclaimsPage page.
  *
@@ -20,9 +21,24 @@ export class PendingclaimsPage {
   temp;
   users;
   count;
+  pendingCount
   formkeys;
+  requestedClaimAmount
+  userIdNo;
   constructor(private alertCtrl: AlertController, public fdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
+    this.userIdNo = sessionStorage.getItem('userId');
     this.fetchDataFromForms();
+    
+    
+    this.fdb.list('/users', ref => ref.orderByChild('user_id').equalTo(this.userIdNo)).valueChanges().subscribe(
+      userData => {
+
+        
+        this.requestedClaimAmount = userData[0]['requestedClaimAmount'];
+        this.pendingCount = userData[0]['pendingCount']
+        
+      }
+    );
   }
 
   
@@ -45,7 +61,6 @@ export class PendingclaimsPage {
     this.fdb.list('/forms').valueChanges().subscribe(
       data => {
         this.forms = data;
-      
 
         this.temp = data;
         this.count = data.length;
@@ -66,7 +81,7 @@ export class PendingclaimsPage {
   //delete submitted claim
   deleteDetails(item) {
 
-
+    console.log(item);
 
     let alert = this.alertCtrl.create({
       title: 'Delete Request',
@@ -83,7 +98,15 @@ export class PendingclaimsPage {
           role: 'Yes',
           handler: () => {
             this.reMapDataWithKeys();
-            
+            var updateCount = this.fdb.list('/users', ref => ref.orderByChild('user_id').equalTo(this.userIdNo)).snapshotChanges().subscribe(data => {
+
+              this.fdb.object('/users/' + data[0].key).update({ pendingCount: this.pendingCount - 1, requestedClaimAmount: this.requestedClaimAmount - item.amount });
+              updateCount.unsubscribe();
+            })
+            item.employeefile.forEach(element => {
+              console.log(element);
+              firebase.storage().refFromURL(element).delete();
+            });
             this.fdb.object('/forms/' + item.key).remove();
           }
         }
