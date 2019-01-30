@@ -1,0 +1,99 @@
+<!--
+  Generated template for the TabReleasedPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="navbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cheques Released</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <!-- <ion-card-header>
+      Filter Results
+    </ion-card-header> -->
+    <ion-card-content>
+
+      <ion-item class='historyFilterCard'>
+        <ion-label>Year</ion-label>
+        <ion-datetime displayFormat="YYYY" [(ngModel)]="year"></ion-datetime>
+      </ion-item>
+
+      <ion-item class='historyFilterCard'>
+        <ion-label>Month</ion-label>
+        <ion-datetime displayFormat="MM YYYY" [(ngModel)]="month"></ion-datetime>
+      </ion-item>
+
+      <ion-item class='historyFilterCard'>
+        <ion-label>Employee</ion-label>
+        <ion-select [(ngModel)]="user_name">
+          <ion-option *ngFor="let usr of users" value="{{usr.user_id}}">{{usr.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <button class='historyFilterCard' ion-button full (click)="applyFilters()">Apply Filters</button>
+    </ion-card-content>
+  </ion-card>
+
+  <div>
+    <ion-card class='summaryCard'>
+      <div class='historySum'>Summary</div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Count : {{ s_count }}
+          </ion-col>
+          <ion-col>
+            Total : LKR {{ s_tot | number : '1.2-2'}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+
+  <div class='historySwipeIns'>(Click on an Item to view more details)</div>
+  <ion-list>
+
+    <!-- Iterate and list the pending forms -->
+    <div *ngFor="let form of forms">
+      <ion-item-sliding #item *ngIf="form.status == 'released'" (click)="viewRequest(form)">
+        <ion-item>
+          <!-- <ion-avatar item-start>
+            <img src="/assets/imgs/avatar.png">
+          </ion-avatar> -->
+          <ion-label>
+            <div *ngFor="let user of users">
+              <h2 *ngIf="user.user_id == form.user_id">
+                {{ user.name }}
+              </h2>
+            </div>
+            <h4>Submitted on {{ form.requestDate }}</h4>
+            <h4>Accepted on {{ form.processDate }}</h4>
+            <h4>Released on {{ form.releaseDate }}</h4>
+            <p>Claim for LKR {{ form.amount | number : '1.2-2'}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button>View</button>
+        </ion-item-options>
+
+        <ion-item-options side="left">
+          <button ion-button>View</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </div>
+
+    <!--  -->
+
+  </ion-list>
+
+</ion-content>

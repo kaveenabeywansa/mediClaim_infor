@@ -1,0 +1,95 @@
+<ion-header>
+
+  <ion-navbar color="navbar">
+    <ion-title>View Request Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <!-- <ion-avatar item-start>
+      <img src="/assets/imgs/avatar.png">
+    </ion-avatar> -->
+    <ion-card-header>
+      <h1 class="centerAlign">{{ selectedReqToView.name }}</h1>
+      <div>
+        <p>User ID : {{ selectedReqToView.user_id }}</p>
+        <p>Submitted on {{ selectedReqToView.requestDate }}</p>
+        <p ion-text color="primary">Status : Waiting for approval</p>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>Request Details</h2>
+      <div class="padding5pt">
+        <table>
+          <tr>
+            <td>Claim No</td>
+            <td>: {{ selectedReqToView.ClaimNo }}</td>
+          </tr>
+          <tr>
+            <td>EPF No</td>
+            <td>: {{ selectedReqToView.EpfNo }}</td>
+          </tr>
+          <!-- <tr>
+            <td>Policy No</td>
+            <td>: {{ selectedReqToView.policyNo }}</td>
+          </tr> -->
+          <tr>
+            <td>Date of Expenditure</td>
+            <td>: {{ selectedReqToView.dateofExpenditure }}</td>
+          </tr>
+          <tr>
+            <td>Claim Month</td>
+            <td>: {{ selectedReqToView.claimMonth }}</td>
+          </tr>
+          <tr>
+            <td>Patient Name</td>
+            <td>: {{ selectedReqToView.patientName }}</td>
+          </tr>
+          <tr>
+            <td>Relationship</td>
+            <td>: {{ selectedReqToView.relationship }}</td>
+          </tr>
+          <!-- <tr>
+            <td>Insurance Company</td>
+            <td>: {{ selectedReqToView.insurancecompany }}</td>
+          </tr> -->
+          <tr>
+            <td>Nature of Illness</td>
+            <td>: {{ selectedReqToView.NatureIllness }}</td>
+          </tr>
+          <tr>
+            <td>Doctor Name</td>
+            <td>: {{ selectedReqToView.nameDoctor }}</td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>: LKR {{ selectedReqToView.amount | number : '1.2-2'}}</td>
+          </tr>
+          <tr>
+            <td>Receipt No</td>
+            <td>: {{ selectedReqToView.recieptNo }}</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        Receipt attachments:
+        <!-- receiptfile -->
+        <div *ngFor="let image of selectedReqToView.employeefile" class='receiptImgDiv'>
+          <img [src]="image" imageViewer >
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button ion-button full color="danger" (click)="rejectRequest()">Reject</button>
+        </div>
+        <div class="col">
+          <button ion-button full color="secondary" (click)="acceptRequest()">Accept</button>
+        </div>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

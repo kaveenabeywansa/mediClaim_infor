@@ -1,0 +1,93 @@
+<ion-header>
+
+  <ion-navbar color="navbar">
+    <ion-title>View Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <!-- <ion-avatar item-start>
+        <img src="/assets/imgs/avatar.png">
+      </ion-avatar> -->
+    <ion-card-header>
+      <h1 class="centerAlign">{{ selectedItem.name }}</h1>
+      <div>
+        <p>User ID : {{ selectedItem.user_id }}</p>
+        <p>Submitted on {{ selectedItem.requestDate }}</p>
+        <p ion-text color="primary" *ngIf="selectedItem.status=='submitted'">Status : Waiting for approval</p>
+        <p ion-text color="primary" *ngIf="selectedItem.status=='accepted'">Status : Accepted</p>
+        <p ion-text color="primary" *ngIf="selectedItem.status=='rejected'">Status : Rejected</p>
+        <p ion-text color="primary" *ngIf="selectedItem.status=='ready'">Status : Ready to be collected</p>
+        <p ion-text color="primary" *ngIf="selectedItem.status=='released'">Status : Claim collected</p>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>Request Details</h2>
+      <div class="padding5pt">
+        <table>
+          <tr>
+            <td>Claim No</td>
+            <td>: {{ selectedItem.ClaimNo }}</td>
+          </tr>
+          <tr>
+            <td>EPF No</td>
+            <td>: {{ selectedItem.EpfNo }}</td>
+          </tr>
+          <!-- <tr>
+            <td>Policy No</td>
+            <td>: {{ selectedItem.policyNo }}</td>
+          </tr> -->
+          <tr>
+            <td>Date of Expenditure</td>
+            <td>: {{ selectedItem.dateofExpenditure }}</td>
+          </tr>
+          <tr>
+            <td>Claim Month</td>
+            <td>: {{ selectedItem.claimMonth }}</td>
+          </tr>
+          <tr>
+            <td>Patient Name</td>
+            <td>: {{ selectedItem.patientName }}</td>
+          </tr>
+          <tr>
+            <td>Relationship</td>
+            <td>: {{ selectedItem.relationship }}</td>
+          </tr>
+          <!-- <tr>
+            <td>Insurance Company</td>
+            <td>: {{ selectedItem.insurancecompany }}</td>
+          </tr> -->
+          <tr>
+            <td>Nature of Illness</td>
+            <td>: {{ selectedItem.NatureIllness }}</td>
+          </tr>
+          <tr>
+            <td>Doctor Name</td>
+            <td>: {{ selectedItem.nameDoctor }}</td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>: LKR {{ selectedItem.amount | number : '1.2-2'}}</td>
+          </tr>
+          <tr>
+            <td>Receipt No</td>
+            <td>: {{ selectedItem.recieptNo }}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div>
+        Receipt attachments:
+        <!-- receiptfile -->
+        <div *ngFor="let image of selectedItem.employeefile" class='receiptImgDiv'>
+          <img [src]="image" imageViewer >
+        </div>
+      </div>
+
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

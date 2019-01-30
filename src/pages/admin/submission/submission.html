@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="navbar">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pending Submissions</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <!-- Iterate and list the pending forms -->
+    <div *ngFor="let form of forms">
+      <ion-item-sliding #item *ngIf="form.status == 'submitted'">
+        <ion-item>
+          <!-- <ion-avatar item-start> -->
+          <!-- <ion-icon name="alert"></ion-icon> -->
+          <!-- </ion-avatar> -->
+          <ion-label>
+            <div *ngFor="let user of users">
+              <h2 *ngIf="user.user_id == form.user_id">
+                {{ user.name }}
+              </h2>
+            </div>
+            <h4>Submitted on {{ form.requestDate }}</h4>
+            <p>Claim for LKR {{ form.amount | number : '1.2-2'}}</p>
+          </ion-label>
+
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button (click)="viewRequest(form)">View Details</button>
+        </ion-item-options>
+
+        <ion-item-options side="left">
+          <button ion-button (click)="viewRequest(form)">View Details</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </div>
+
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <div class="swipe_ins">(Swipe to view options)</div>
+</ion-footer>
