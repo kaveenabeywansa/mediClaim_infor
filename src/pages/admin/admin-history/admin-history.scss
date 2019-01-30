@@ -1,3 +1,22 @@
 page-admin-history {
 
 }
+.historySwipeIns{
+    display: flex;
+    justify-content: center;
+    color: rgb(100, 100, 100);
+}
+.historySum{
+    display: flex;
+    justify-content: center;
+    color: rgb(70, 70, 70);
+    font-size: 125%;
+}
+.historyFilterCard{
+    font-size: 90%;
+}
+.summaryCard{
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+}
