@@ -133,7 +133,7 @@ export class PatientdetailsPage {
         // this.uploadButtonHide = false;
       }
       catch (e) {
-        alert("theradfdf" + e);
+       
       }
 
     } else {
