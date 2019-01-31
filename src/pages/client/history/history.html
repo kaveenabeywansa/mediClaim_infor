@@ -1,6 +1,6 @@
 
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <button ion-button menuToggle left>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -17,7 +17,7 @@
         <ion-tab [root]="tab2Root" tabTitle="Rejected"></ion-tab>
       </ion-tabs> -->
   <div *ngFor="let form of forms">
-    <div *ngIf="form.user_id == 101">
+    <div *ngIf="form.user_id == userIdNo">
       <ion-list>
         <ion-item-sliding #item *ngIf="form.status == 'released'">
           <ion-item>

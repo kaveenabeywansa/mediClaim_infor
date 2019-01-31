@@ -16,7 +16,9 @@ export class HistoryPage {
   users;
   count;
   formkeys;
+  userIdNo;
   constructor(public fdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
+    this.userIdNo = sessionStorage.getItem('userId');
     this.fetchDataFromForms();
   }
 

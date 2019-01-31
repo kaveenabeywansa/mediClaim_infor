@@ -214,7 +214,7 @@ export class PatientdetailsPage {
       "Designation": this.designation,
       "EpfNo": this.EpfNo,
       "user_id": this.userIdNo,
-      "ClaimNo": this.claimNo
+      "ClaimNo": this.userIdNo + "-" + this.claimNo
 
 
     });
@@ -232,6 +232,8 @@ export class PatientdetailsPage {
     // this.navCtrl.push(PatientdetailsPage).then(() => {
     //   this.navCtrl.remove(currentIndex);
     // });
+
+    alert("Your request was sumbitted");
     this.navCtrl.setRoot(PatientdetailsPage);
 
 
