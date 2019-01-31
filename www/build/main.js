@@ -270,6 +270,7 @@ var HomeMngrPage = /** @class */ (function () {
         this.annual_chRdyCount = 1;
         this.annual_clmdCount = 1;
         this.fetchDataFromFireBase();
+        this.loggedUserName = sessionStorage.getItem('username');
     }
     HomeMngrPage.prototype.ionViewDidLoad = function () {
         this.showChart();
@@ -374,12 +375,12 @@ var HomeMngrPage = /** @class */ (function () {
     };
     HomeMngrPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home-mngr',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/admin/home-mngr/home-mngr.html"*/'<ion-header>\n  <ion-navbar color="navbar">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Dashboard</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <div class=\'home_logo\'>\n    <img src="/assets/imgs/infor.png" height=40% width=40%>\n  </div>\n  <div class="centerAlign">\n    <h2>Infor Medi Claim - Manager</h2>\n  </div>\n\n  <div>\n    <div id="overall_stats"></div>\n    <div id="annual_stats"></div>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/admin/home-mngr/home-mngr.html"*/,
+            selector: 'page-home-mngr',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/admin/home-mngr/home-mngr.html"*/'<ion-header>\n  <ion-navbar color="navbar">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Dashboard</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div class=\'home_logo\'>\n    <img src="/assets/imgs/infor.png" height=40% width=40%>\n  </div>\n  <div class="centerAlign">\n    <h2>Infor Medi Claim - Manager</h2>\n  </div>\n  <div class="centerAlign">\n    <h3>Welcome {{ loggedUserName }} !</h3>\n  </div>\n\n  <div>\n    <div id="overall_stats"></div>\n    <div id="annual_stats"></div>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/admin/home-mngr/home-mngr.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["AngularFireDatabase"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["AngularFireDatabase"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["AngularFireDatabase"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */]) === "function" && _d || Object])
     ], HomeMngrPage);
     return HomeMngrPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=home-mngr.js.map
@@ -393,7 +394,7 @@ var HomeMngrPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SubmissionPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__view_request_det_view_request_det__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__view_request_det_view_request_det__ = __webpack_require__(213);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angularfire2_database__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(583);
@@ -702,7 +703,7 @@ var DashboardPage = /** @class */ (function () {
     };
     DashboardPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-dashboard',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/client_dashboard/dashboard.html"*/'<ion-header>\n  <ion-toolbar>\n    <button ion-button menuToggle left>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n   \n    <ion-title class="title-style">Dashboard</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content class="background">\n \n    <br>\n    <div class="textcolor">\n      Welcome {{name}}\n</div>\n    <br>\n  \n    <ion-card>\n        <ion-card-header>\n           Claim Balance Summary\n          </ion-card-header>\n          <ion-card-content>\n        <ion-item  id="barchart_values" >\n\n          </ion-item>\n          <br>\n          <br>\n          <ion-row>\n              <ion-col>\n                  <ion-fab  right bottom>\n                      <button (click)="newRequestClicked()" ion-fab>\n                        <ion-icon name ="add"></ion-icon>\n                      </button>\n                     </ion-fab>\n              </ion-col>\n          </ion-row>\n            \n            \n        </ion-card-content>\n    </ion-card>\n \n\n  \n  <ion-card>\n\n    <ion-card-header>\n      Claim Summary\n    </ion-card-header>\n\n    <ion-card-content>\n        <ion-segment [(ngModel)]="dateType" color="primary" (ionChange)="segmentChanged($event)">\n            <ion-segment-button value="today">\n              Today\n            </ion-segment-button>\n            <ion-segment-button value="month">\n              This Month\n            </ion-segment-button>\n            <ion-segment-button value="year">\n                This Year\n              </ion-segment-button>\n          </ion-segment>\n    </ion-card-content>\n    \n    \n    <p id="form_available" *ngIf="tableEmpty" style="text-align:center">No Request Available</p>\n      \n    <ion-item id="table_div" >\n        \n    </ion-item>\n    \n  </ion-card>\n\n\n<div >\n\n</div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/client_dashboard/dashboard.html"*/,
+            selector: 'page-dashboard',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/client_dashboard/dashboard.html"*/'<ion-header>\n  <ion-toolbar color="dark">\n    <button ion-button menuToggle left>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n\n    <ion-title class="title-style">Dashboard</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n\n<ion-content class="background">\n\n  <br>\n  <div class="textcolor">\n    Welcome {{name}}\n  </div>\n  <br>\n\n  <ion-card>\n    <ion-card-header>\n      Claim Balance Summary\n    </ion-card-header>\n    <ion-card-content>\n      <ion-item id="barchart_values">\n\n      </ion-item>\n      <br>\n      <br>\n      <ion-row>\n        <ion-col>\n          <ion-fab right bottom>\n            <button (click)="newRequestClicked()" ion-fab>\n              <ion-icon name="add"></ion-icon>\n            </button>\n          </ion-fab>\n        </ion-col>\n      </ion-row>\n\n\n    </ion-card-content>\n  </ion-card>\n\n\n\n  <ion-card>\n\n    <ion-card-header>\n      Claim Summary\n    </ion-card-header>\n\n    <ion-card-content>\n      <ion-segment [(ngModel)]="dateType" color="primary" (ionChange)="segmentChanged($event)">\n        <ion-segment-button value="today">\n          Today\n        </ion-segment-button>\n        <ion-segment-button value="month">\n          This Month\n        </ion-segment-button>\n        <ion-segment-button value="year">\n          This Year\n        </ion-segment-button>\n      </ion-segment>\n    </ion-card-content>\n\n\n    <p id="form_available" *ngIf="tableEmpty" style="text-align:center">No Request Available</p>\n\n    <ion-item id="table_div">\n\n    </ion-item>\n\n  </ion-card>\n\n\n  <div>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/client_dashboard/dashboard.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__angular_common__["d" /* DecimalPipe */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["AngularFireDatabase"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]])
     ], DashboardPage);
@@ -720,7 +721,7 @@ var DashboardPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PatientdetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angularfire2_database__);
@@ -786,6 +787,7 @@ var PatientdetailsPage = /** @class */ (function () {
         this.camera = camera;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.receiptCountValidation = 0;
         this.employeefile = [];
         this.receiptCount = 0;
         this.maxDate = new Date().toISOString();
@@ -843,6 +845,7 @@ var PatientdetailsPage = /** @class */ (function () {
                         this.loader.present().then(function () {
                             var pictures = Object(__WEBPACK_IMPORTED_MODULE_2_firebase__["storage"])().ref(_this.userIdNo + "/" + ((parseInt(_this.claimNo) + 1))).child(_this.userIdNo + "-" + (_this.claimNo + 1) + "-" + _this.receiptCount);
                             pictures.putString(image_1, 'data_url').then(function (data) {
+                                _this.receiptCountValidation += 1;
                                 //get receipt url to upload it with forms
                                 _this.getPhotoUrl();
                             });
@@ -869,7 +872,7 @@ var PatientdetailsPage = /** @class */ (function () {
             && this.dateofExpen && this.ReceiptNo &&
             this.amountofExpen && this.natureofillness && this.requestDate && this.claimMonth &&
             this.NameOfEmployee && this.designation && this.EpfNo &&
-            this.employeefile && (this.availableBalance - this.requestedClaimAmount) >= this.amountofExpen) {
+            this.receiptCountValidation > 0 && this.employeefile && (this.availableBalance - this.requestedClaimAmount) >= this.amountofExpen) {
             var alert_1 = this.alertCtrl.create({
                 title: 'Confirm Submission',
                 message: 'Do you want to submit your claim',
@@ -925,7 +928,7 @@ var PatientdetailsPage = /** @class */ (function () {
             "Designation": this.designation,
             "EpfNo": this.EpfNo,
             "user_id": this.userIdNo,
-            "ClaimNo": this.claimNo
+            "ClaimNo": this.userIdNo + "-" + this.claimNo
         });
         var finalRequestedClaimAmount = parseFloat(this.requestedClaimAmount) + parseFloat(this.amountofExpen);
         var updateCount = this.fdb.list('/users', function (ref) { return ref.orderByChild('user_id').equalTo(_this.userIdNo); }).snapshotChanges().subscribe(function (data) {
@@ -938,6 +941,7 @@ var PatientdetailsPage = /** @class */ (function () {
         // this.navCtrl.push(PatientdetailsPage).then(() => {
         //   this.navCtrl.remove(currentIndex);
         // });
+        alert("Your request was sumbitted");
         this.navCtrl.setRoot(PatientdetailsPage_1);
     };
     //get receipt url
@@ -978,10 +982,7 @@ var PatientdetailsPage = /** @class */ (function () {
                     text: 'Yes',
                     role: 'Yes',
                     handler: function () {
-                        var currentIndex = _this.navCtrl.getActive().index;
-                        _this.navCtrl.push(PatientdetailsPage_1).then(function () {
-                            _this.navCtrl.remove(currentIndex);
-                        });
+                        _this.navCtrl.setRoot(PatientdetailsPage_1);
                     }
                 }
             ]
@@ -1007,10 +1008,11 @@ var PatientdetailsPage = /** @class */ (function () {
                         __WEBPACK_IMPORTED_MODULE_2_firebase__["storage"]().ref(_this.userIdNo + "/" + (parseInt(_this.claimNo) + 1)).child(_this.userIdNo + "-" + (_this.claimNo + 1) + "-" + (_this.receiptCount - 1)).delete();
                         _this.uploadButtonHide = true;
                         _this.uploadButtonClicked = false;
-                        if (element !== -1) {
-                            _this.employeefile.splice(element, 1);
-                            console.log(_this.employeefile);
+                        var index = _this.employeefile.indexOf(element);
+                        if (index !== -1) {
+                            _this.employeefile.splice(index, 1);
                         }
+                        _this.receiptCountValidation -= 1;
                     }
                 }
             ]
@@ -1019,7 +1021,7 @@ var PatientdetailsPage = /** @class */ (function () {
     };
     PatientdetailsPage = PatientdetailsPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-patientdetails',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/patientdetails/patientdetails.html"*/'<ion-header>\n  <ion-toolbar>\n    <button ion-button menuToggle left>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title class="title-style">New Request</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class="background" padding>\n  <div class="textcolor">Claim Request Form</div>\n  <br>\n  <ion-list>\n    <ion-item>\n      <ion-label floating>Name of Employee</ion-label>\n      <ion-input type="text" [(ngModel)]="NameOfEmployee" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Designation</ion-label>\n      <ion-input type="text" [(ngModel)]="designation" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>EPF No</ion-label>\n      <ion-input type="text" [(ngModel)]="EpfNo" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Claim for the month of</ion-label>\n      <ion-datetime displayFormat="MMMM/YYYY" pickerFormat="MMMM YYYY" [(ngModel)]="claimMonth" [max]="maxDate" required="required"></ion-datetime>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Name of the patient</ion-label>\n      <ion-input type="text" [(ngModel)]="nameofpatient" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Patients relationship to the employee</ion-label>\n      <ion-input type="text" [(ngModel)]="patientrelationship" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Name of the Specialist</ion-label>\n      <ion-input type="text" [(ngModel)]="nameofdoctor" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Nature of illness</ion-label>\n      <ion-input type="text" [(ngModel)]="natureofillness" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Date of Expenditure</ion-label>\n      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="dateofExpen" [max]="maxDate" required="required"></ion-datetime>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Receipt No</ion-label>\n      <ion-input type="text" [(ngModel)]="ReceiptNo" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Amount of expenditure</ion-label>\n      <ion-input type="number" step="0.01" [(ngModel)]="amountofExpen" required="required"></ion-input>\n    </ion-item>\n    <ion-item >\n        \n        <ion-label id="validate_balance"></ion-label>\n      \n      </ion-item>\n\n    <ion-item>\n      <p *ngIf="ReceiptUploaded">Receipt Uploaded - {{ReceiptNo}}</p>\n\n    </ion-item>\n  </ion-list>\n\n  <div>\n    <button (click)="takePhoto()" class="button-inner" ion-button color="primary" col-12 *ngIf="uploadButtonHide">\n      Upload Receipt </button>\n  </div>\n\n  <!-- <div>\n    <button (click)="deleteButtonClicked()" class="button-inner" ion-button color="danger" *ngIf="uploadButtonClicked" clear item-end>\n      Delete Receipt </button>\n  </div> -->\n\n  <ion-list >\n      <ng-container *ngFor="let element of employeefile">\n          <ion-item *ngIf="element">\n        <ion-thumbnail item-start>\n          <img [src]="element" imageViewer>\n        </ion-thumbnail>\n        <ion-label>Receipt Uploaded</ion-label>\n        \n        <button (click)="deleteButtonClicked(element)" ion-button color="danger"  clear item-end>\n            Delete</button>\n         \n      </ion-item>\n    </ng-container>\n    </ion-list>\n\n  <div>\n    <button (click)="submitButtonClicked()" class="alignright" ion-button color="primary"> submit </button>\n  </div>\n  <div>\n    <button (click)="cancelButtonClicked()" class="alignright" ion-button color="danger"> cancel </button>\n  </div>\n\n\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/patientdetails/patientdetails.html"*/,
+            selector: 'page-patientdetails',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/patientdetails/patientdetails.html"*/'<ion-header>\n  <ion-toolbar color="dark">\n    <button ion-button menuToggle left>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title class="title-style">New Request</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class="background" padding>\n  <div class="textcolor">Claim Request Form</div>\n  <br>\n  <ion-list>\n    <ion-item>\n      <ion-label floating>Name of Employee</ion-label>\n      <ion-input type="text" [(ngModel)]="NameOfEmployee" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Designation</ion-label>\n      <ion-input type="text" [(ngModel)]="designation" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>EPF No</ion-label>\n      <ion-input type="text" [(ngModel)]="EpfNo" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Claim for the month of</ion-label>\n      <ion-datetime displayFormat="MMMM/YYYY" pickerFormat="MMMM YYYY" [(ngModel)]="claimMonth" [max]="maxDate" required="required"></ion-datetime>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Name of the patient</ion-label>\n      <ion-input type="text" [(ngModel)]="nameofpatient" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Patients relationship to the employee</ion-label>\n      <ion-input type="text" [(ngModel)]="patientrelationship" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Name of the Specialist</ion-label>\n      <ion-input type="text" [(ngModel)]="nameofdoctor" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Nature of illness</ion-label>\n      <ion-input type="text" [(ngModel)]="natureofillness" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Date of Expenditure</ion-label>\n      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="dateofExpen" [max]="maxDate" required="required"></ion-datetime>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Receipt No</ion-label>\n      <ion-input type="text" [(ngModel)]="ReceiptNo" required="required"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Amount of expenditure</ion-label>\n      <ion-input type="number" step="0.01" [(ngModel)]="amountofExpen" required="required"></ion-input>\n    </ion-item>\n    <ion-item >\n        \n        <ion-label id="validate_balance"></ion-label>\n      \n      </ion-item>\n\n    <ion-item>\n      <p *ngIf="ReceiptUploaded">Receipt Uploaded - {{ReceiptNo}}</p>\n\n    </ion-item>\n  </ion-list>\n\n  <div>\n    <button (click)="takePhoto()" class="button-inner" ion-button color="primary" col-12 *ngIf="uploadButtonHide">\n      Upload Receipt </button>\n  </div>\n\n  <!-- <div>\n    <button (click)="deleteButtonClicked()" class="button-inner" ion-button color="danger" *ngIf="uploadButtonClicked" clear item-end>\n      Delete Receipt </button>\n  </div> -->\n\n  <ion-list >\n      <ng-container *ngFor="let element of employeefile">\n          <ion-item *ngIf="element">\n        <ion-thumbnail item-start>\n          <img [src]="element" imageViewer>\n        </ion-thumbnail>\n        <ion-label>Receipt Uploaded</ion-label>\n        \n        <button (click)="deleteButtonClicked(element)" ion-button color="danger"  clear item-end>\n            Delete</button>\n         \n      </ion-item>\n    </ng-container>\n    </ion-list>\n\n  <div>\n    <button (click)="submitButtonClicked()" class="alignright" ion-button color="primary"> submit </button>\n  </div>\n  <div>\n    <button (click)="cancelButtonClicked()" class="alignright" ion-button color="danger"> cancel </button>\n  </div>\n\n\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/patientdetails/patientdetails.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["AngularFireDatabase"], __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]])
     ], PatientdetailsPage);
@@ -1064,7 +1066,7 @@ var FormdetailsPage = /** @class */ (function () {
     }
     FormdetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-formdetails',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/formdetails/formdetails.html"*/'<ion-header>\n\n    <ion-navbar>\n        <ion-title>Claimed form details</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="background" padding>\n    <ion-list>\n        <ion-row>\n            <ion-col>\n                <ion-label>Status :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.status}}</ion-label>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col>\n                <ion-label>Claim No : </ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.ClaimNo}}</ion-label>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col>\n                <ion-label>Claim for the month of :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.claimMonth}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Name of Employee :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.NameOfEmployee}}</ion-label>\n            </ion-col>\n\n\n        </ion-row>\n        <ion-row>\n            <ion-col>\n                <ion-label>EPF No :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.EpfNo}}</ion-label>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col>\n                <ion-label>Requested Date :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.requestDate}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Name of the patient :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.patientName}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Patients relationship to the employee :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.relationship}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Name of the Specialist :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.nameDoctor}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Nature of illness :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.NatureIllness}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Date of Expenditure :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.dateofExpenditure}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Receipt No :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.recieptNo}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Amount of expenditure :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.amount}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Receipt :</ion-label>\n            </ion-col>\n            <ion-col *ngFor="let element of formDetails.employeefile">\n                <img [src]="element" imageViewer>\n            </ion-col>\n        </ion-row>\n        \n\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/formdetails/formdetails.html"*/,
+            selector: 'page-formdetails',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/formdetails/formdetails.html"*/'<ion-header>\n\n    <ion-navbar color="dark">\n        <ion-title>Claimed form details</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n        <ion-row>\n            <ion-col>\n                <ion-label>Status :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.status}}</ion-label>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col>\n                <ion-label>Claim No : </ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.ClaimNo}}</ion-label>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col>\n                <ion-label>Claim for the month of :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.claimMonth}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Name of Employee :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.NameOfEmployee}}</ion-label>\n            </ion-col>\n\n\n        </ion-row>\n        <ion-row>\n            <ion-col>\n                <ion-label>EPF No :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.EpfNo}}</ion-label>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col>\n                <ion-label>Requested Date :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.requestDate}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Name of the patient :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.patientName}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Patients relationship to the employee :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.relationship}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Name of the Specialist :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.nameDoctor}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Nature of illness :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.NatureIllness}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Date of Expenditure :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.dateofExpenditure}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Receipt No :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.recieptNo}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Amount of expenditure :</ion-label>\n            </ion-col>\n            <ion-col>\n                <ion-label> {{formDetails.amount}}</ion-label>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col>\n                <ion-label>Receipt :</ion-label>\n            </ion-col>\n            <ion-col *ngFor="let element of formDetails.employeefile">\n                <img [src]="element" imageViewer>\n            </ion-col>\n        </ion-row>\n        \n\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/formdetails/formdetails.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]])
     ], FormdetailsPage);
@@ -1119,6 +1121,7 @@ var HomePage = /** @class */ (function () {
     HomePage.prototype.ionViewDidEnter = function () {
         this.fetchDataFromFireBase();
         this.generateCharts();
+        this.loggedUserName = sessionStorage.getItem('username');
         // this.navCtrl.resize();
     };
     HomePage.prototype.generateCharts = function () {
@@ -1180,29 +1183,30 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/admin/home/home.html"*/'<ion-header>\n  <ion-navbar color="navbar">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Dashboard</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <div class=\'home_logo\'>\n    <img src="/assets/imgs/infor.png" height=40% width=40%>\n  </div>\n  <div class="centerAlign">\n    <h2>Infor Medi Claim - Admin</h2>\n  </div>\n\n  <div id=\'adminDashCharts\'></div>\n\n  <ion-card (click)="goToPage(\'submissions\')" color="secondary" [ngClass]="{\'bg-red\': changeColorSub}">\n    <ion-card-header class=\'centerAlign\'>\n      <h1>Pending Submissions</h1>\n    </ion-card-header>\n    <ion-card-content *ngIf="badgeSubCount==0">\n      You do not have any pending subissions !\n    </ion-card-content>\n    <ion-card-content *ngIf="badgeSubCount>0">\n      You have {{ badgeSubCount }} pending submissions to be processed !\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card (click)="goToPage(\'cheques\')" color="secondary" [ngClass]="{\'bg-red\': changeColorChq}">\n    <ion-card-header class="centerAlign">\n      <h1>Cheque Ready Queue</h1>\n    </ion-card-header>\n    <ion-card-content *ngIf="badgeChqCount==0">\n      You do not have any cheques pending !\n    </ion-card-content>\n    <ion-card-content *ngIf="badgeChqCount>0">\n      You have {{ badgeChqCount }} cheques pending !\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card (click)="goToPage(\'collect\')" color="secondary" [ngClass]="{\'bg-red\': changeColorCol}">\n    <ion-card-header class="centerAlign">\n      <h1>Collected Cheques</h1>\n    </ion-card-header>\n    <ion-card-content *ngIf="badgeColCount==0">\n      You do not have any cheques waiting to be collected !\n    </ion-card-content>\n    <ion-card-content *ngIf="badgeColCount>0">\n      You have {{ badgeColCount }} cheques waiting to be collected !\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/admin/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/admin/home/home.html"*/'<ion-header>\n  <ion-navbar color="navbar">\n    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>\n    <ion-title>Dashboard</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="home_logo">\n    <img src="/assets/imgs/infor.png" height="40%" width="40%" />\n  </div>\n  <div class="centerAlign"><h2>Infor Medi Claim - Admin</h2></div>\n  <div class="centerAlign">\n    <h3>Welcome {{ loggedUserName }} !</h3>\n  </div>\n\n  <div id="adminDashCharts"></div>\n\n  <ion-card\n    (click)="goToPage(\'submissions\')"\n    color="secondary"\n    [ngClass]="{ \'bg-red\': changeColorSub }"\n  >\n    <ion-card-header class="centerAlign">\n      <h1>Pending Submissions</h1>\n    </ion-card-header>\n    <ion-card-content *ngIf="badgeSubCount == 0">\n      You do not have any pending subissions !\n    </ion-card-content>\n    <ion-card-content *ngIf="badgeSubCount > 0">\n      You have {{ badgeSubCount }} pending submissions to be processed !\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card\n    (click)="goToPage(\'cheques\')"\n    color="secondary"\n    [ngClass]="{ \'bg-red\': changeColorChq }"\n  >\n    <ion-card-header class="centerAlign">\n      <h1>Cheque Ready Queue</h1>\n    </ion-card-header>\n    <ion-card-content *ngIf="badgeChqCount == 0">\n      You do not have any cheques pending !\n    </ion-card-content>\n    <ion-card-content *ngIf="badgeChqCount > 0">\n      You have {{ badgeChqCount }} cheques pending !\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card\n    (click)="goToPage(\'collect\')"\n    color="secondary"\n    [ngClass]="{ \'bg-red\': changeColorCol }"\n  >\n    <ion-card-header class="centerAlign">\n      <h1>Collected Cheques</h1>\n    </ion-card-header>\n    <ion-card-content *ngIf="badgeColCount == 0">\n      You do not have any cheques waiting to be collected !\n    </ion-card-content>\n    <ion-card-content *ngIf="badgeColCount > 0">\n      You have {{ badgeColCount }} cheques waiting to be collected !\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/admin/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["AngularFireDatabase"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["AngularFireDatabase"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["AngularFireDatabase"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */]) === "function" && _c || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map
 
 /***/ }),
 
-/***/ 205:
+/***/ 206:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminHistoryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tab_released_tab_released__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tab_submitted_tab_submitted__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tab_accepted_tab_accepted__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__tab_rejected_tab_rejected__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tab_ready_tab_ready__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tab_released_tab_released__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tab_submitted_tab_submitted__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tab_accepted_tab_accepted__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__tab_rejected_tab_rejected__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tab_ready_tab_ready__ = __webpack_require__(211);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1245,7 +1249,7 @@ var AdminHistoryPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 206:
+/***/ 207:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1395,7 +1399,7 @@ var TabReleasedPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 207:
+/***/ 208:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1545,7 +1549,7 @@ var TabSubmittedPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 208:
+/***/ 209:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1695,7 +1699,7 @@ var TabAcceptedPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 209:
+/***/ 210:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1845,7 +1849,7 @@ var TabRejectedPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 210:
+/***/ 211:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1995,7 +1999,7 @@ var TabReadyPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 211:
+/***/ 212:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2008,7 +2012,7 @@ var TabReadyPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_mngr_home_mngr__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_database___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_angularfire2_database__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_network__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_network__ = __webpack_require__(317);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__client_client_dashboard_dashboard__ = __webpack_require__(119);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2089,16 +2093,20 @@ var LoginPage = /** @class */ (function () {
                             // identify user type and redirect
                             if (user_type == 'admin') {
                                 // open admin dashboard
+                                sessionStorage.setItem('userId', user_data[0]['user_id']);
+                                sessionStorage.setItem('username', user_data[0]['name']);
                                 _this.events.publish('user:admin');
                                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
                             }
                             else if (user_type == 'manager') {
                                 // open manager dashboard
+                                sessionStorage.setItem('userId', user_data[0]['user_id']);
+                                sessionStorage.setItem('username', user_data[0]['name']);
                                 _this.events.publish('user:manager');
                                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_mngr_home_mngr__["a" /* HomeMngrPage */]);
                             }
                             else if (user_type == 'employee') {
-                                // open manager dashboard
+                                // open employee dashboard
                                 sessionStorage.setItem('userId', user_data[0]['user_id']);
                                 _this.events.publish('user:employee');
                                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__client_client_dashboard_dashboard__["a" /* DashboardPage */]);
@@ -2151,7 +2159,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/admin/login/login.html"*/'<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>login</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n\n\n<ion-content padding color class=\'login_content\'>\n\n  <ion-avatar item-start class=\'loginpgLogo\'>\n    <img src="/assets/imgs/infor.png" height=40% width=40%>\n  </ion-avatar>\n  <div class="loginmaintxt">Infor Medi Claim - Admin</div>\n\n  <ion-list>\n\n    <ion-item class="loginfields">\n      <ion-input type="text" placeholder="Username" [(ngModel)]="in_username" class="loginTxtFlds"></ion-input>\n    </ion-item>\n\n    <ion-item class="loginfields">\n      <ion-input type="password" placeholder="Password" [(ngModel)]="in_password" class="loginTxtFlds"></ion-input>\n    </ion-item>\n\n    <button ion-button full class=\'loginbtn1\' (click)="signIn()">Sign In</button>\n    <!-- <button ion-button full class=\'loginbtn1\' (click)="signIn(\'manager\')">Sign In (Manager)</button>\n    <button ion-button full color=\'danger\' class=\'loginbtn1\' (click)="forgotpwd()">Forgot Password</button> -->\n\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/admin/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/admin/login/login.html"*/'<!-- <ion-header>\n\n  <ion-navbar>\n    <ion-title>login</ion-title>\n  </ion-navbar>\n\n</ion-header> -->\n\n\n<ion-content padding color class=\'login_content\'>\n\n  <ion-avatar item-start class=\'loginpgLogo\'>\n    <img src="/assets/imgs/infor.png" height=40% width=40%>\n  </ion-avatar>\n  <div class="loginmaintxt">Infor Medi Claim</div>\n\n  <ion-list>\n\n    <ion-item class="loginfields">\n      <ion-input type="text" placeholder="Username" [(ngModel)]="in_username" class="loginTxtFlds"></ion-input>\n    </ion-item>\n\n    <ion-item class="loginfields">\n      <ion-input type="password" placeholder="Password" [(ngModel)]="in_password" class="loginTxtFlds"></ion-input>\n    </ion-item>\n\n    <button ion-button full class=\'loginbtn1\' (click)="signIn()">Sign In</button>\n    <!-- <button ion-button full class=\'loginbtn1\' (click)="signIn(\'manager\')">Sign In (Manager)</button>\n    <button ion-button full color=\'danger\' class=\'loginbtn1\' (click)="forgotpwd()">Forgot Password</button> -->\n\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/admin/login/login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Events */], __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__["AngularFireDatabase"],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* MenuController */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_network__["a" /* Network */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* ToastController */]])
@@ -2163,7 +2171,7 @@ var LoginPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 212:
+/***/ 213:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2215,8 +2223,11 @@ var ViewRequestDetPage = /** @class */ (function () {
     };
     ViewRequestDetPage.prototype.notifyEmployee = function (item, state) {
         // notify the employee using an email
-        if (state)
+        var extraText = "";
+        if (state) {
             state = 'accepted';
+            extraText = ". We will notify you when the cheque is ready !";
+        }
         else
             state = 'rejected';
         var email = {
@@ -2224,7 +2235,7 @@ var ViewRequestDetPage = /** @class */ (function () {
             cc: 'kaveen.abeywansa@infor.com',
             subject: 'Your claim request was ' + state + ' !',
             body: 'Hi ' + this.userName
-                + ',<br>This is an automated mail sent to notify that your request was ' + state + '<br><br>Thank you',
+                + ',<br>This is an automated mail sent to notify that your request was ' + state + extraText + '<br><br>Thank you',
             isHtml: true
         };
         this.emailComposer.open(email);
@@ -2345,7 +2356,7 @@ var ViewRequestDetPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 213:
+/***/ 214:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2373,6 +2384,7 @@ var HistoryPage = /** @class */ (function () {
         this.fdb = fdb;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.userIdNo = sessionStorage.getItem('userId');
         this.fetchDataFromForms();
     }
     //retrieve forms of current user
@@ -2395,7 +2407,7 @@ var HistoryPage = /** @class */ (function () {
     };
     HistoryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-history',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/history/history.html"*/'\n<ion-header>\n  <ion-toolbar>\n    <button ion-button menuToggle left>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title class="title-style">History</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content class="background" padding>\n  <div class="textcolor">Swipe to view claims</div>\n  <br>\n  <!-- <ion-tabs>\n        <ion-tab [root]="tab1Root" tabTitle="Released"></ion-tab>\n        <ion-tab [root]="tab2Root" tabTitle="Rejected"></ion-tab>\n      </ion-tabs> -->\n  <div *ngFor="let form of forms">\n    <div *ngIf="form.user_id == 101">\n      <ion-list>\n        <ion-item-sliding #item *ngIf="form.status == \'released\'">\n          <ion-item>\n              <!-- <ion-img width="25" height="25" src="assets/imgs/checked" item-end></ion-img> -->\n            <ion-icon name="checkmark" color="secondary" item-end></ion-icon>\n            <ion-label>\n              <p><b>Requested on {{ form.date }}</b></p>\n              <p><b>Released on {{ form.releasedate }}</b></p>\n              <p>Claimed for Rs. {{ form.amount }}</p>\n            </ion-label>\n          </ion-item>\n\n          <ion-item-options side="right">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n          </ion-item-options>\n          <ion-item-options side="left">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n          </ion-item-options>\n        </ion-item-sliding>\n\n        <ion-item-sliding #item *ngIf="form.status == \'rejected\'">\n          <ion-item>\n\n              <ion-icon name="close" color="danger" item-end></ion-icon>\n            <ion-label>\n              <p><b>Requested on {{ form.date }}</b></p>\n              <p><b>Rejected on {{ form.rejectdate }}</b></p>\n              <p>Claimed for Rs. {{ form.amount }}</p>\n            </ion-label>\n          </ion-item>\n\n          <ion-item-options side="right">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n          </ion-item-options>\n          <ion-item-options side="right">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n    </div>\n  </div>\n\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/history/history.html"*/,
+            selector: 'page-history',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/history/history.html"*/'\n<ion-header>\n  <ion-toolbar color="dark">\n    <button ion-button menuToggle left>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title class="title-style">History</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content class="background" padding>\n  <div class="textcolor">Swipe to view claims</div>\n  <br>\n  <!-- <ion-tabs>\n        <ion-tab [root]="tab1Root" tabTitle="Released"></ion-tab>\n        <ion-tab [root]="tab2Root" tabTitle="Rejected"></ion-tab>\n      </ion-tabs> -->\n  <div *ngFor="let form of forms">\n    <div *ngIf="form.user_id == userIdNo">\n      <ion-list>\n        <ion-item-sliding #item *ngIf="form.status == \'released\'">\n          <ion-item>\n              <!-- <ion-img width="25" height="25" src="assets/imgs/checked" item-end></ion-img> -->\n            <ion-icon name="checkmark" color="secondary" item-end></ion-icon>\n            <ion-label>\n              <p><b>Requested on {{ form.date }}</b></p>\n              <p><b>Released on {{ form.releasedate }}</b></p>\n              <p>Claimed for Rs. {{ form.amount }}</p>\n            </ion-label>\n          </ion-item>\n\n          <ion-item-options side="right">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n          </ion-item-options>\n          <ion-item-options side="left">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n          </ion-item-options>\n        </ion-item-sliding>\n\n        <ion-item-sliding #item *ngIf="form.status == \'rejected\'">\n          <ion-item>\n\n              <ion-icon name="close" color="danger" item-end></ion-icon>\n            <ion-label>\n              <p><b>Requested on {{ form.date }}</b></p>\n              <p><b>Rejected on {{ form.rejectdate }}</b></p>\n              <p>Claimed for Rs. {{ form.amount }}</p>\n            </ion-label>\n          </ion-item>\n\n          <ion-item-options side="right">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n          </ion-item-options>\n          <ion-item-options side="right">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n    </div>\n  </div>\n\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/history/history.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["AngularFireDatabase"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]])
     ], HistoryPage);
@@ -2406,7 +2418,7 @@ var HistoryPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 214:
+/***/ 215:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2416,6 +2428,8 @@ var HistoryPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angularfire2_database__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__formdetails_formdetails__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2430,6 +2444,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the PendingclaimsPage page.
  *
@@ -2438,11 +2453,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var PendingclaimsPage = /** @class */ (function () {
     function PendingclaimsPage(alertCtrl, fdb, navCtrl, navParams) {
+        var _this = this;
         this.alertCtrl = alertCtrl;
         this.fdb = fdb;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.userIdNo = sessionStorage.getItem('userId');
         this.fetchDataFromForms();
+        this.fdb.list('/users', function (ref) { return ref.orderByChild('user_id').equalTo(_this.userIdNo); }).valueChanges().subscribe(function (userData) {
+            _this.requestedClaimAmount = userData[0]['requestedClaimAmount'];
+            _this.pendingCount = userData[0]['pendingCount'];
+        });
     }
     //join the key with the prior form object
     PendingclaimsPage.prototype.reMapDataWithKeys = function () {
@@ -2467,6 +2488,7 @@ var PendingclaimsPage = /** @class */ (function () {
     //delete submitted claim
     PendingclaimsPage.prototype.deleteDetails = function (item) {
         var _this = this;
+        console.log(item);
         var alert = this.alertCtrl.create({
             title: 'Delete Request',
             message: 'Do you want to delete your claim',
@@ -2481,6 +2503,14 @@ var PendingclaimsPage = /** @class */ (function () {
                     role: 'Yes',
                     handler: function () {
                         _this.reMapDataWithKeys();
+                        var updateCount = _this.fdb.list('/users', function (ref) { return ref.orderByChild('user_id').equalTo(_this.userIdNo); }).snapshotChanges().subscribe(function (data) {
+                            _this.fdb.object('/users/' + data[0].key).update({ pendingCount: _this.pendingCount - 1, requestedClaimAmount: _this.requestedClaimAmount - item.amount });
+                            updateCount.unsubscribe();
+                        });
+                        item.employeefile.forEach(function (element) {
+                            console.log(element);
+                            __WEBPACK_IMPORTED_MODULE_4_firebase__["storage"]().refFromURL(element).delete();
+                        });
                         _this.fdb.object('/forms/' + item.key).remove();
                     }
                 }
@@ -2494,7 +2524,7 @@ var PendingclaimsPage = /** @class */ (function () {
     };
     PendingclaimsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-pendingclaims',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/pendingclaims/pendingclaims.html"*/'<ion-header>\n  <ion-toolbar>\n    <button ion-button menuToggle left>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title class="title-style">Pending Claims</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content class="background" padding>\n  <div class="textcolor">Swipe to view/delete claims</div>\n  <br>\n  \n  <div *ngFor="let form of forms">\n    <div *ngIf="form.user_id == 101">\n      <ion-list>\n        <ion-item-sliding #item *ngIf="form.status == \'accepted\'">\n          <ion-item>\n            <ion-label>\n              <br>\n              <p><b>Requested on {{ form.requestDate }} </b></p>\n              <p><b>Processing started on {{ form.processDate }}</b></p>\n              <p>Claiming for Rs. {{ form.amount }}</p>\n            </ion-label>\n          </ion-item>\n\n          <ion-item-options side="right">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n          </ion-item-options>\n          <ion-item-options side="left">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n          </ion-item-options>\n        </ion-item-sliding>\n        <ion-item-sliding #item *ngIf="form.status == \'submitted\'">\n          <ion-item>\n\n            <ion-label>\n              <p><b>Requested on {{ form.requestDate }}</b></p>\n              <p><b>Processing not started</b></p>\n              <p>Claiming for Rs. {{ form.amount }}</p>\n            </ion-label>\n          </ion-item>\n\n          <ion-item-options side="right">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n            <button ion-button (click)="deleteDetails(form)" ion-button color="danger">Delete details</button>\n          </ion-item-options>\n          <ion-item-options side="left">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n    </div>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/pendingclaims/pendingclaims.html"*/,
+            selector: 'page-pendingclaims',template:/*ion-inline-start:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/pendingclaims/pendingclaims.html"*/'<ion-header>\n  <ion-toolbar color="dark">\n    <button ion-button menuToggle left>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title class="title-style">Pending Claims</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content class="background" padding>\n  <div class="textcolor">Swipe to view/delete claims</div>\n  <br>\n  \n  <div *ngFor="let form of forms">\n    <div *ngIf="form.user_id == userIdNo">\n      <ion-list>\n        <ion-item-sliding #item *ngIf="form.status == \'accepted\'">\n          <ion-item>\n            <ion-label>\n              <br>\n              <p><b>Requested on {{ form.requestDate }} </b></p>\n              <p><b>Processing started on {{ form.processDate }}</b></p>\n              <p>Claiming for Rs. {{ form.amount }}</p>\n            </ion-label>\n          </ion-item>\n\n          <ion-item-options side="right">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n          </ion-item-options>\n          <ion-item-options side="left">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n          </ion-item-options>\n        </ion-item-sliding>\n        <ion-item-sliding #item *ngIf="form.status == \'submitted\'">\n          <ion-item>\n\n            <ion-label>\n              <p><b>Requested on {{ form.requestDate }}</b></p>\n              <p><b>Processing not started</b></p>\n              <p>Claiming for Rs. {{ form.amount }}</p>\n            </ion-label>\n          </ion-item>\n\n          <ion-item-options side="right">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n            <button ion-button (click)="deleteDetails(form)" ion-button color="danger">Delete details</button>\n          </ion-item-options>\n          <ion-item-options side="left">\n            <button ion-button (click)="viewDetails(form)">View details</button>\n\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n    </div>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/kabeywansa/Desktop/inforMediClaim/src/pages/client/pendingclaims/pendingclaims.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["AngularFireDatabase"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]])
     ], PendingclaimsPage);
@@ -2505,7 +2535,7 @@ var PendingclaimsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 254:
+/***/ 255:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -2518,11 +2548,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 254;
+webpackEmptyAsyncContext.id = 255;
 
 /***/ }),
 
-/***/ 295:
+/***/ 296:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -2610,7 +2640,7 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 295;
+webpackAsyncContext.id = 296;
 module.exports = webpackAsyncContext;
 
 /***/ }),
@@ -2641,7 +2671,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_admin_home_home__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_admin_list_list__ = __webpack_require__(608);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_admin_submission_submission__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_admin_view_request_det_view_request_det__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_admin_view_request_det_view_request_det__ = __webpack_require__(213);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(359);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(360);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common__ = __webpack_require__(43);
@@ -2650,21 +2680,21 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_angularfire2_database__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_angularfire2_database___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_angularfire2_database__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_admin_chequesmng_chequesmng__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_admin_admin_history_admin_history__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_admin_tab_submitted_tab_submitted__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_admin_tab_released_tab_released__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_admin_tab_accepted_tab_accepted__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_admin_tab_rejected_tab_rejected__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_admin_admin_history_admin_history__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_admin_tab_submitted_tab_submitted__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_admin_tab_released_tab_released__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_admin_tab_accepted_tab_accepted__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_admin_tab_rejected_tab_rejected__ = __webpack_require__(210);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_admin_view_history_det_view_history_det__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_admin_chequecollected_chequecollected__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_admin_tab_ready_tab_ready__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_admin_tab_ready_tab_ready__ = __webpack_require__(211);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_email_composer__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_admin_login_login__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_admin_login_login__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_admin_home_mngr_home_mngr__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_network__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_network__ = __webpack_require__(317);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ionic_img_viewer__ = __webpack_require__(610);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_client_pendingclaims_pendingclaims__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_client_history_history__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_client_pendingclaims_pendingclaims__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_client_history_history__ = __webpack_require__(214);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_client_client_dashboard_dashboard__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_client_patientdetails_patientdetails__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_client_formdetails_formdetails__ = __webpack_require__(121);
@@ -2874,12 +2904,12 @@ var ViewHistoryDetPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_admin_home_home__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_admin_submission_submission__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_admin_chequesmng_chequesmng__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_admin_admin_history_admin_history__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_admin_admin_history_admin_history__ = __webpack_require__(206);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_admin_chequecollected_chequecollected__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_admin_login_login__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_admin_login_login__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_admin_home_mngr_home_mngr__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_client_pendingclaims_pendingclaims__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_client_history_history__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_client_pendingclaims_pendingclaims__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_client_history_history__ = __webpack_require__(214);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_client_client_dashboard_dashboard__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_client_patientdetails_patientdetails__ = __webpack_require__(120);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
