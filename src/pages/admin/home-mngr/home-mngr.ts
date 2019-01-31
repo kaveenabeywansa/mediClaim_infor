@@ -33,9 +33,12 @@ export class HomeMngrPage {
   annual_chRdyCount = 1;
   annual_clmdCount = 1;
 
+  loggedUserName;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public adf: AngularFireDatabase, private platform: Platform) {
     this.fetchDataFromFireBase();
+    this.loggedUserName = sessionStorage.getItem('username');
   }
 
   ionViewDidLoad() {

@@ -32,7 +32,7 @@ export class HomePage {
   ionViewDidEnter() {
     this.fetchDataFromFireBase();
     this.generateCharts();
-    this.loggedUserName = sessionStorage.getItem('username'); 
+    this.loggedUserName = sessionStorage.getItem('username');
     // this.navCtrl.resize();
   }
 
