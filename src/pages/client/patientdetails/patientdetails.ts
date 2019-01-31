@@ -6,7 +6,7 @@ import { AngularFireDatabase } from 'angularfire2/database'
 import { Camera, CameraOptions } from "@ionic-native/camera"
 import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
-import { ParseError } from '@angular/compiler';
+
 
 @IonicPage()
 @Component({
@@ -14,6 +14,8 @@ import { ParseError } from '@angular/compiler';
   templateUrl: 'patientdetails.html',
 })
 export class PatientdetailsPage {
+
+  receiptCountValidation = 0;
   key;
   nameofpatient;
   patientrelationship;
@@ -75,15 +77,14 @@ export class PatientdetailsPage {
 
           var remainingClaimBalance = this.availableBalance - this.requestedClaimAmount
           document.getElementById("validate_balance").innerHTML = "Maximum claimable amount " + remainingClaimBalance.toString();
-
+          
       }
     );
 
-
+     
 
 
   }
-
 
 
 
@@ -119,7 +120,7 @@ export class PatientdetailsPage {
           const pictures = storage().ref(this.userIdNo + "/" + ((parseInt(this.claimNo) + 1))).child(this.userIdNo + "-" + (this.claimNo + 1) + "-" + this.receiptCount);
           pictures.putString(image, 'data_url').then(data => {
 
-
+            this.receiptCountValidation +=1;
             //get receipt url to upload it with forms
             this.getPhotoUrl();
 
@@ -144,15 +145,19 @@ export class PatientdetailsPage {
   //validate requested claim 
   submitButtonClicked() {
 
-
+  
 
     if (this.nameofpatient && this.patientrelationship && this.nameofdoctor
       && this.dateofExpen && this.ReceiptNo &&
       this.amountofExpen && this.natureofillness && this.requestDate && this.claimMonth &&
       this.NameOfEmployee && this.designation && this.EpfNo &&
-      this.employeefile && (this.availableBalance - this.requestedClaimAmount) >= this.amountofExpen
-    ) {
+      this.receiptCountValidation>0  && this.employeefile  && (this.availableBalance - this.requestedClaimAmount) >= this.amountofExpen
+    ) 
+    {
 
+      
+
+    
       let alert = this.alertCtrl.create({
         title: 'Confirm Submission',
         message: 'Do you want to submit your claim',
@@ -214,7 +219,7 @@ export class PatientdetailsPage {
       "Designation": this.designation,
       "EpfNo": this.EpfNo,
       "user_id": this.userIdNo,
-      "ClaimNo": this.claimNo
+      "ClaimNo": this.userIdNo + "-" + this.claimNo
 
 
     });
@@ -232,6 +237,8 @@ export class PatientdetailsPage {
     // this.navCtrl.push(PatientdetailsPage).then(() => {
     //   this.navCtrl.remove(currentIndex);
     // });
+
+    alert("Your request was sumbitted");
     this.navCtrl.setRoot(PatientdetailsPage);
 
 
@@ -284,10 +291,8 @@ export class PatientdetailsPage {
           text: 'Yes',
           role: 'Yes',
           handler: () => {
-            let currentIndex = this.navCtrl.getActive().index;
-            this.navCtrl.push(PatientdetailsPage).then(() => {
-              this.navCtrl.remove(currentIndex);
-            });
+            this.navCtrl.setRoot(PatientdetailsPage);
+            
           }
         }
 
@@ -316,10 +321,15 @@ export class PatientdetailsPage {
             firebase.storage().ref(this.userIdNo + "/" + (parseInt(this.claimNo) + 1)).child(this.userIdNo + "-" + (this.claimNo + 1) + "-" + (this.receiptCount - 1)).delete();
             this.uploadButtonHide = true;
             this.uploadButtonClicked = false;
-            if (element !== -1) {
-              this.employeefile.splice(element, 1);
-              console.log(this.employeefile);
+            
+              var index = this.employeefile.indexOf(element);
+              if (index !== -1) {
+              this.employeefile.splice(index, 1);
+              
+              
             }
+            this.receiptCountValidation -= 1;
+
 
           }
         }
