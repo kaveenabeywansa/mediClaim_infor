@@ -5,6 +5,7 @@ import { AngularFireDatabase } from 'angularfire2/database'
 import { FormdetailsPage } from '../formdetails/formdetails';
 
 
+
 @IonicPage()
 @Component({
   selector: 'page-history',
@@ -16,7 +17,9 @@ export class HistoryPage {
   users;
   count;
   formkeys;
+  userIdNo;
   constructor(public fdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
+    this.userIdNo = sessionStorage.getItem('userId');
     this.fetchDataFromForms();
   }
 
@@ -51,6 +54,5 @@ export class HistoryPage {
   viewDetails(form) {
     this.navCtrl.push(FormdetailsPage, { formdetails: form });
   }
-
 
 }
