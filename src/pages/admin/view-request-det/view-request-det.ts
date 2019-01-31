@@ -45,8 +45,11 @@ export class ViewRequestDetPage {
 
   notifyEmployee(item, state) {
     // notify the employee using an email
-    if (state)
+    var extraText = "";
+    if (state){
       state = 'accepted';
+      extraText = ". We will notify you when the cheque is ready !"
+    }
     else
       state = 'rejected';
 
@@ -55,7 +58,7 @@ export class ViewRequestDetPage {
       cc: 'kaveen.abeywansa@infor.com', // Make it some responsible partys' email address later
       subject: 'Your claim request was ' + state + ' !',
       body: 'Hi ' + this.userName
-        + ',<br>This is an automated mail sent to notify that your request was ' + state + '<br><br>Thank you',
+        + ',<br>This is an automated mail sent to notify that your request was ' + state + extraText + '<br><br>Thank you',
       isHtml: true
     };
 

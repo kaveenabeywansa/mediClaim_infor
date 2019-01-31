@@ -20,6 +20,7 @@ export class HomePage {
   changeColorChq = false;
   changeColorCol = false;
   forms;
+  loggedUserName;
 
   constructor(public navCtrl: NavController, public adf: AngularFireDatabase, private platform: Platform) {
   }
@@ -31,6 +32,7 @@ export class HomePage {
   ionViewDidEnter() {
     this.fetchDataFromFireBase();
     this.generateCharts();
+    this.loggedUserName = sessionStorage.getItem('username'); 
     // this.navCtrl.resize();
   }
 

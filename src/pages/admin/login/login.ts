@@ -78,14 +78,18 @@ export class LoginPage {
               // identify user type and redirect
               if (user_type == 'admin') {
                 // open admin dashboard
+                sessionStorage.setItem('userId', user_data[0]['user_id']);
+                sessionStorage.setItem('username', user_data[0]['name']);
                 this.events.publish('user:admin');
                 this.navCtrl.setRoot(HomePage);
               } else if (user_type == 'manager') {
                 // open manager dashboard
+                sessionStorage.setItem('userId', user_data[0]['user_id']);
+                sessionStorage.setItem('username', user_data[0]['name']);
                 this.events.publish('user:manager');
                 this.navCtrl.setRoot(HomeMngrPage);
               } else if (user_type == 'employee') {
-                // open manager dashboard
+                // open employee dashboard
                 sessionStorage.setItem('userId', user_data[0]['user_id']);
                 this.events.publish('user:employee');
                 this.navCtrl.setRoot(DashboardPage);
