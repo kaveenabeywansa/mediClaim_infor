@@ -146,7 +146,7 @@ export class DashboardPage {
     this.fdb.list('/forms', ref => ref.orderByChild('user_id').equalTo(this.userIdNo)).valueChanges().subscribe(userData => {
       this.resetUserDate();
       userData.forEach(element => {
-        if (new Date(element['requestDate']).getMonth() == new Date().getMonth()) {
+        if (new Date(element['requestDate']).getMonth() == new Date().getMonth() && new Date(element['requestDate']).getFullYear() == new Date().getFullYear()) {
           this.formsAvailable = true;
           this.retrieveData(element['status'], element['amount']);
 
